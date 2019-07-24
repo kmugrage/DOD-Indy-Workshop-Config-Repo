@@ -15,16 +15,6 @@ pipelines:
         git: # YOUR VALUE
         shallow_clone: false
     stages:
-    - traffic_light:
-        notify_stage: success
-        jobs:
-          notify_job:
-            elastic_profile_id: demo-app
-            tasks:
-            - exec:
-                command: echo
-                arguments: 
-                - "ready"
     - deploy_to_uat:
         approval:
           type: manual
