@@ -9,6 +9,9 @@ pipelines:
       KUBE_TOKEN: AES:hCq0PWlZxtxtPwSy0YA1WA==:dPH5f9VtI+Ex6ikk+LYgm1Xgh6cPgeGmrDRW/fZNCFub7WSdlRB6mZgI0AIQE5I8GCfG3Ke97e9uRVtSrvF29Rx2m+r8sra9lmYzA43v1wMsGjiS176PEinLka2//FDbOknTfksdU1dcLba8UrAtmogWi9YRbphRfrsKpoeliD8kQNmQx5/J5fKUOO9p3JoqcTloPARLFbkIZ54aHgVnzRYBnlXGeg4dIFoaEQgvbe55qFxyeLpyCv5RH61ffIBIi8dMrUOs0JC5yDTyLQcAKdCIgCVRwYcAAW3z46t3xT2jzYaH7gJCN7xmEYFe84PZ+U1ijGXAumRVTJP1VrLnFDVZXBdVGk8gQs5yOqRoxQhavcnrU282XDBkgq2YQ548VdZ2RvTPu5mbr3xOWiHrcOj6SE8uM5bzsEV2d7WeWOzr29W6ULF3aA/pEgLTyD5mlv9EPIPNXdH8E7quLR8x5O1vw7NNk358mEmUOodBcy5POmiwU0CuB1CTC85wrwVg2fwER/IKdavFR2IhXb7oRzqZA5y6dk+OsJKtqD8zJvVMl6/b0WXH7RPmGl9k50l7KiQIMJcM5cRbsgGlm/pnuxuqyb1M00fKg7wvxHQ7wUW/ui0a1JycuYrDucdMbXjo8yqOfDosVoBh3w3oD/a06TLhortVbDZDjFOMB8GlUewUVfXS42CPad7i42iBiLR1xoHUunjjLRmWCQ1AdtFN6gjeIpH9FXDQ9utqpmXv/KTkEeI0eUBTweSHEmBD6PeGQ7qnNR3brI7NpqTFnh9b2AfV9pkhjmsfjOLkw7gY0II+f90wVAWtrCgd6P+H4KH+f7UOJZ7XkY8IX49Vah6MK5rIOOk5Z7XZh+5PJR7ZFwSK28g6LVhlTpNUCUX4R/9rwgk9JbCL/2XvjUGQQM1M6JA9pXdjpmrEYz/hKtTsitihUt/nkj7Q5UR+SIWUNQ1ouJW4NwcsyC7DhbPB0kZ8mGQFnaZLhXUR3IgcVuu62Ac42wLgnTZQzu4grbkAALPQlQlSSNKgO6ftZeiU7EaYD9sSweN5FqGGl8Ax8B98r8K0sAs8laNlfJuJ5YVZVzImoOeaDvppF44VLrUMc/pOG0mekPaq8q7J3WhsFKdqZtMq3jIQWkSh3sr1vVo2FbNZmEz2kvHvPySdlS33jkR3Ag==
     materials:
       build:
+        pipeline:  build_and_package
+        stage: build_stage
+      uat:
         pipeline: uat
         stage: approved
       SourceCodeRepo:
@@ -27,7 +30,7 @@ pipelines:
                   EnvironmentVariablePrefix: ''
                   SkipImagePulling: 'true'
                 artifact_id: bulletin-board
-                pipeline: uat/build_and_package
+                pipeline: build_and_package
                 stage: build_stage
                 job: build_image
                 artifact_origin: external
