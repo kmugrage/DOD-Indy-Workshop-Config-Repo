@@ -13,7 +13,7 @@ pipelines:
         stage: build_stage
       uat:
         pipeline: deploy_to_uat
-        stage: approved
+        stage: approval_stage
       SourceCodeRepo:
         git: https://github.com/kmugrage/node-bulletin-board
         shallow_clone: false
