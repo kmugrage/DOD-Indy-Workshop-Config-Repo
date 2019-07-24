@@ -10,7 +10,7 @@ pipelines:
     materials:
       compliance_material:
         pipeline: compliance
-        stage: compliance
+        stage: compliance_stage
       uat:
         pipeline: deploy_to_uat
         stage: approval_stage
